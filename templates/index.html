@@ -1,0 +1,60 @@
+{% extends "style.html" %}
+<!--This is the html head.-->
+{% block head %}
+<title>Waffle Hacks 2022</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+{% endblock %}
+
+<!--This is the html body.-->
+{% block body %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    var socket = io.connect(host='0.0.0.0', port=81)
+    socket.on('connect', function() {
+      socket.send("{user} connected!");
+    });
+    socket.on('message', function(data){
+      $('#messages').append($('<p>').text(data));
+    });
+
+    $('sendbtn').on('click', function (){
+      socket.send($('username').val() + ': ' + $('message').val());
+      #('message').val('');
+    });
+  })
+</script>
+<div class="header">
+      <button>Connect</button>
+    <button>
+      <a href=/login>Login</a>
+    </button>
+</div>
+<div class="main">
+  <div class="welcomemsg">
+        <!--If user is logged in from Auth0, username will be shown-->
+    {% if session %}
+      <h1>Welcome {{session.userinfo.name}}!</h1>
+      <div><pre>{{pretty}}</pre></div>
+    <!--else default username 'Guest'-->
+    {% else %}
+      <h1>Welcome Guest</h1>
+    {% endif %}
+  </div>
+  <div class = "chatbox">
+    <h3 style="width:100%;text-align:center;">chat</h3>
+    <div id="chats"></div>
+    <div class="write">
+      <input type="text" id="message">
+      <button id="sendmsg">
+        Send
+      </button>
+    </div>
+  </div>
+</div>
+<div class="bottom">
+  <img src="https://images.vexels.com/media/users/3/252400/isolated/preview/802fcc71fc51ed2878c1c84266d2351a-colorful-retro-radio-machine.png" id="radio">
+  <div class="musicinfo">-----MUSIC INFO-----</div>
+</div>
+{% endblock %}
+

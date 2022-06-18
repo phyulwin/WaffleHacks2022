@@ -1,0 +1,23 @@
+colors:
+  red: 
+#8E1006
+
+  orange:
+#E17830
+
+  burgundy: 
+#9E4C1D
+
+  yellow: 
+#ECCB99
+
+  brown:
+#201713
+
+TODO:
+add login feature with auth0
+add campfire 
+add profile pictures around campfire for effect
+  maybe add interactivity to profile pictures?
+chat feature
+

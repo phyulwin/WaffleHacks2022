@@ -1,0 +1,114 @@
+/*This affects every html page.*/
+body{
+  z-index:1;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+  background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url("https://thumbs.dreamstime.com/b/mountain-river-canyon-night-vector-cartoon-landscape-nature-park-water-stream-gorge-stone-cliffs-rocks-grand-189519141.jpg");
+  background:filter(brightness:10%;);
+      background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-family: monospace;
+}
+div{
+    display: flex;
+}
+button,.musicinfo{
+  align-self:center;
+    margin-inline: .5rem;
+    background-color: #e77d36;
+    padding: .25rem;
+    margin-top:2vh;
+    font-size: xx-large;
+    border-radius: 1rem;
+    border-width: .15rem;
+    border-color: #9E4C1D;
+    border-style: solid;
+  color:#201713;
+  transition: border-radius 1s ease-in-out;
+}
+button:hover{
+  border-radius:.5rem;
+  background-color: #db5f29;
+}
+.musicinfo:hover{
+  background-color: #db5f29;
+}
+a{
+  color:#201713;
+  text-decoration:none;
+}
+
+.header{
+    float: right;
+  clear:both;
+  height:10vh;
+    margin-inline: 5rem;
+    margin-top: 0px;
+}
+
+.main{
+  display: flex;
+  height:70vh;
+  width:100vw;
+  justify-content:center;
+}
+
+.welcomemsg{
+  margin-left:50vw;
+  transform:translate(-50%);
+  font-size:1.5vw;
+  color:#ECCB99;
+}
+
+.chatbox{
+  flex-direction:column;
+  font-size:1.5vw;
+  background:#ECCB9995;
+  margin-left:auto;
+  margin-right:1vw;
+  margin-top:5vh;
+  border-radius: 1rem;
+  border-width: .15rem;
+  border-color: #ECCB9995;
+  border-style: solid;
+  height:max-content;
+  padding:1rem;
+  width:20%;
+}
+#chats{
+  clear:both;
+}
+.write{
+  justify-content:center;
+}
+input{
+  background:#ECCB99;
+  border-style:none;
+  
+}
+#message{
+  margin-top:auto;
+  margin-bottom:auto;
+  width:100%;
+}
+#sendmsg{
+  margin-top:auto;
+  margin-bottom:auto;
+  font-size:1vw;
+  margin-right:0px;
+}
+
+.bottom{
+  z-index:10;
+  height:20vh;
+}
+
+.musicinfo{
+  margin-top:5vh;
+  font-size:2.5vw;
+}
+
+#radio{
+  margin-left:2.5vw;
+}
