@@ -15,8 +15,9 @@ colors:
 #201713
 
 TODO:
-add login feature with auth0
+direct a logout
 add campfire 
+
 add profile pictures around campfire for effect
   maybe add interactivity to profile pictures?
 chat feature

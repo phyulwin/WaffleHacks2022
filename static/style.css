@@ -4,7 +4,7 @@ body{
     margin: 0px;
     width: 100vw;
     height: 100vh;
-  background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url("https://thumbs.dreamstime.com/b/mountain-river-canyon-night-vector-cartoon-landscape-nature-park-water-stream-gorge-stone-cliffs-rocks-grand-189519141.jpg");
+  background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url("https://cdna.artstation.com/p/assets/images/images/021/043/496/large/alex-kolosov-campfirescene-03.jpg?1570155424&dl=1");
   background:filter(brightness:10%;);
       background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -87,12 +87,12 @@ input{
   border-style:none;
   
 }
-#message{
+#myMessage{
   margin-top:auto;
   margin-bottom:auto;
   width:100%;
 }
-#sendmsg{
+#sendbutton{
   margin-top:auto;
   margin-bottom:auto;
   font-size:1vw;
