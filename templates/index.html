@@ -6,75 +6,109 @@
 {% endblock %}
 <!--This is the html body.-->
 {% block body %}
-
+<script src="{{url_for('static', filename='myScript.js')}}"></script>
 <div class="main">
   <div class="welcomemsg">
 <!--If user is logged in, username will be displayed-->
 <!--Connect & Chatbox features to be shown only when logged in-->
   {% if session %}
     <h1 id="greet">Welcome {{session.userinfo.name}}!</h1>
-    
-    <div class="connectPortal">
-    <details>
-      <summary>Join A Study Group</summary>
-      <button>subject1</button>
-      <button>subject2</button>
-      <button>subject3</button>
-      <button>subject4</button>
-      <button onclick="/connect">Connect</button>
-    </details>
-    </div>
-      
-    <div class = "chatbox" id="chatbox">
-      <h3 style="width:100%;text-align:center;">chat</h3>
-      <ul id="messages" style="list-style: none;padding:0px;"></ul>
-      <div class="write">
-        <input type="text" id="message">
-          <button id="add" onclick="AddLi(message.value)">Send</button>
-      </div>
-    </div>
-
-
-
-    
   {% else %}
     <h1 id="greet">Welcome Guest</h1>
     <button id="alltype"><a href=/login>Login</a></button>
   {% endif %}
   </div> <!--end of welcomemsg class-->
+  
+  {% if session %}
+      <div class = "chatbox" style="overflow:hidden;">
+      <div id=connpop style="height:100%;width:100%;margin:auto;">
+    
+        <form action="/connect" method="post" style="margin: auto">
+          <label>
+            <input type="radio" name="subject" value="0"/>ART/HUMANITIES
+          </label>
+          <label>
+            <input type="radio" name="subject" value="1"/>MATH/SCIENCE
+          </label>
+          <label>
+            <input type="radio" name="subject" value="2"/>OTHERS
+          </label>
+        <button type="submit" onclick="chatbox()"<a href=/connect>connect</button>
+      </div>
+        
+      <div id="chatpop" style="filter:opacity(0%);">
+        <h3 style="width:100%;text-align:center;">{{subject}}chat</h3>
+        <ul id="messages" style="list-style: none;padding:0px;font-size:1vw;"></ul>
+        <div class="write">
+          <input type="text" id="message">
+            <button id="add" onclick="AddLi(message.value)">Send</button>
+        </div>
+      </div>
+    </div>
+{% endif %}
 </div>
 
 <!--make the Play/Pause Audio smaller?-->
 <div class="bottom">
-  <div class="musicinfo">
+  <div class="musicinfo" style="">
     <audio id="idAudio">
   		<source src="{{url_for('static', filename='campfire.mp3')}}" type="audio/mpeg">
     </audio>
-    <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-      <button onclick="play_Audio()" type="button">Play Audio</button>
-  	  <button onclick="pause_Audio()" type="button">Pause Audio</button>
-    </div>
+    <button onclick="play_Audio()" type="button">
+      <img src="https://cdn-icons.flaticon.com/png/512/5577/premium/5577228.png?token=exp=1655632800~hmac=f6d9b7be3b6392437eec19e1fab63474" style="height:5vw;">
+    </button>
+    <button onclick="pause_Audio()" type="button" >
+      <img src="https://cdn-icons.flaticon.com/png/512/3669/premium/3669483.png?token=exp=1655632800~hmac=c9f4ea8f18992f8ef85bc863fa300ace" style="height:5vw;">
+    </button>
   </div>
-  <script>
-		var GFG = document.getElementById("idAudio");
 
-		function play_Audio() {
-			GFG.play();
-		}
-
-		function pause_Audio() {
-			GFG.pause();
-		}
-	</script>
-  <script type="text/javascript">
-function AddLi(str)
-{
-    var li = document.createElement('li');
-    li.appendChild(document.createTextNode(str))
-    document.getElementById("messages").appendChild(li);
-  document.querySelector('#message').value = "";
-}
-  </script>
 </div>
+
+
+<script>
+  //confetti button script
+  var animateButton = function(e) {
+
+    e.preventDefault;
+    //reset animation
+    e.target.classList.remove('animate');
+  
+    e.target.classList.add('animate');
+    setTimeout(function(){
+      e.target.classList.remove('animate');
+    },700);
+  };
+  
+  var classname = document.getElementsByClassName("confetti-button");
+  
+  for (var i = 0; i < classname.length; i++) {
+    classname[i].addEventListener('click', animateButton, false);
+  }
+
+  //audio script
+  var GFG = document.getElementById("idAudio");
+  function play_Audio() {
+    GFG.play();
+  }
+
+  function pause_Audio() {
+    GFG.pause();
+  }
+
+  function AddLi(str)
+  {
+      var li = document.createElement('li');
+      li.appendChild(document.createTextNode(str))
+      document.getElementById("messages").appendChild(li);
+    document.querySelector('#message').value = "";
+  }
+
+
+function chatbox(){
+  var elem = document.getElementById("connpop");
+  elem.remove();
+  document.getElementById("chatpop").style.filter="opacity(100%)";
+}
+</script>
 {% endblock %}
 

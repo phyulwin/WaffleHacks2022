@@ -29,6 +29,7 @@ def home():
     return render_template(
         "index.html",
         session=session.get("user"),
+        subject=" ",
         #pretty=json.dumps(session.get("user"), indent=4),
     )
 
@@ -48,9 +49,10 @@ def login():
 @app.route("/connect", methods=["GET","POST"])
 def connect():
   if request.method == 'POST':
-    pass
+    subject=request.form.get('subject')
+    return render_template("index.html",subject=subject)
   else:
-    return render_template("index.html")
+    return render_template("index.html",subject=" ")
 
 
 if __name__ == "__main__":
