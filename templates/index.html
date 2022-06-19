@@ -10,7 +10,7 @@
 <div class="main">
   <div class="welcomemsg">
   {% if session %}
-    <h1 id="greet">Welcome {{session.userinfo.name}}!</h1>
+    <h1 id="greet" style="font-family: 'Amatic SC', cursive;">Camp•Study</h1>
   {% else %}
     <h1 id="greet" style="font-family: 'Amatic SC', cursive;">Welcome Guest</h1>
     <button id="alltype" ><a href=/login>Login</a></button>
@@ -18,38 +18,39 @@
   </div> <!--end of welcomemsg class-->
   
   {% if session %}
-    <div class = "chatbox" style="overflow:hidden;width:max-content;height:40vh;">
-    <div id=connpop style="height:100%;width:100%;margin:auto;"> 
-    <form action="/connect" method="post">
-        <h3 style="width:100%;text-align:center;">JOIN A STUDY GROUP</h3>
+    <div id = "connpop" class="chatbox" style="width:min-content;height:40vh;">
+        <h3 style="width:100%;text-align:center;font-family: 'Amatic SC', cursive;">JOIN A STUDY GROUP</h3>
         <label>
-          <input type="radio" id="subject" name="Art" value="0"/>&nbspART/HUMANITIES
+          <input type="radio" id="subject" name="subject">ART/HUMANITIES
         </label>
         <label>
-          <input type="radio" id="subject" name="Science" value="1"/>&nbspMATH/SCIENCES
-        </label
+          <input type="radio" id="subject" name="subject">MATH/SCIENCES
+        </label>
         <label style="white-space:nowrap;clear:both;">
-          <input type="radio" id="subject" name="Everyday" value="2"/>&nbspCASUAL CHAT
+          <input type="radio" id="subject" name="subject">CASUAL CHAT
         </label>
-      <button type="submit" onclick="chatbox()" style="">connect</button>
-    </div>
-    </form>
+      <button onclick="chatbox()">connect</button>
+    </div>  
+
         
-    <div id="chatpop" style="filter:opacity(0%);flex-direction:column;">
+    <div id="chatpop" class="chatbox" style="filter:opacity(0%);flex-direction:column;">
       <h3 style="font-family:'Amatic SC',cursive;width:100%;text-align:center;">{{session.userinfo.name}}'s CHAT</h3>
       <ul id="messages" style="list-style: none;padding:0px;font-size:1vw;"></ul>
       <div class="write">
         <input type="text" id="message">
           <button id="add" onclick="AddLi(message.value)">Send</button>
       </div>
+      <button onclick="connectbox()">Go Back</button>
     </div>
-  </div>
+
 {% endif %}
 </div>
 
-<!--make the Play/Pause Audio smaller?-->
+<!--Audio Play/Pause buttons-->
 <div class="bottom">
-  <div class="musicinfo" style="">
+  <div id='radio' style="margin-top:auto;margin-bottom:auto;">
+  <img src="https://i.imgur.com/5phFYbt.png" style="height:20vh;">
+  <div class="musicinfo" style="margin-top:5vh;">
     <audio id="idAudio">
   		<source src="{{url_for('static', filename='campfire.mp3')}}" type="audio/mpeg">
     </audio>
@@ -60,29 +61,11 @@
       <img src="https://i.imgur.com/rSEFahk.png" style="height:7vw;">
     </button>
   </div>
+  </div>
 </div>
 
 
 <script>
-  //confetti button script
-  var animateButton = function(e) {
-
-    e.preventDefault;
-    //reset animation
-    e.target.classList.remove('animate');
-  
-    e.target.classList.add('animate');
-    setTimeout(function(){
-      e.target.classList.remove('animate');
-    },700);
-  };
-  
-  var classname = document.getElementsByClassName("confetti-button");
-  
-  for (var i = 0; i < classname.length; i++) {
-    classname[i].addEventListener('click', animateButton, false);
-  }
-
   //audio script
   var GFG = document.getElementById("idAudio");
   function play_Audio() {
@@ -104,7 +87,7 @@
 
 function chatbox(){
   var elem = document.getElementById("connpop");
-  elem.remove();
+  elem.remove(); 
   document.getElementById("chatpop").style.filter="opacity(100%)";
 }
 document.getElementById('message')
@@ -114,6 +97,10 @@ document.getElementById('message')
         AddLi(document.getElementByID('text').value())
       }
   });
+  //this is to show connect box when removing chat
+function connectbox(){
+  var chatbox=document.getElementById("chatpop");
+  chatbox.remove(); document.getElementById("connpop").style.filter="opacity(100%)";
+}
 </script>
 {% endblock %}
-

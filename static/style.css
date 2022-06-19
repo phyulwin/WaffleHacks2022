@@ -15,7 +15,7 @@ div{
     display: flex;
 } 
 
-button,.musicinfo{
+button{
   align-self:center;
     margin-inline: 2.5vw;
     background-color: #e77d36;
@@ -50,15 +50,15 @@ a{
 }
 
 .welcomemsg{
+  align-items: center;
+  justify-content: center;
   margin-left:20vw;
   height:10vh;
   width:100vw;
-  margin-top: 0px;
+  margin-top: 30px;
 }
 
 #greet{
-  margin-left:auto;
-  margin-right:auto;
   font-size:3vw;
   color:#ECCB99;
 }
@@ -67,13 +67,14 @@ a{
 }
 
 .main{
-  height:70vh;
+  height:80vh;
   width:100vw;
 }
 
 .chatbox, .chatpop{
   flex-direction:column;
   font-size:5vh;
+  display: flex;
   background:#ECCB9995;
   margin-left:auto;
   margin-right:2.5vw;
@@ -83,9 +84,9 @@ a{
   border-width: .15rem;
   border-color: #ECCB9995;
   border-style: solid;
-  height:max-content;
   padding:1rem;
-  width:20%;
+  width:20vw;
+  
 }
 h3{
   margin:0px;
@@ -95,11 +96,11 @@ h3{
 }
 .write{
   justify-content:center;
+  margin-top:auto;
 }
 #subject{
 }
 input{
-
 }
 input:focus{
    outline: none; }
@@ -109,36 +110,40 @@ li{
   margin-right:auto;
 }
 #message{
-  margin-top:auto;
-  margin-bottom:auto;
   width:100%;
-    font-size:medium;
+  font-size:medium;
   background:#ECCB99;
   border-style:none;
 }
 #add{
   margin-top:auto;
   margin-bottom:auto;
-  font-size:1vw;
+  font-size:5vw;
   margin-right:0px;
 }
 
 .bottom{
-  z-index:10;
   height:20vh;
-  align-self:center;
+  width:100vw;
+  justify-content:center;
 }
 
 .musicinfo{
-  
-  margin-top:5vh;
   font-size:2.5vw;
-  width:min-content;
-  height:min-content;
+    background-color: #e77d36;
+    padding: .35rem;
+    margin-top:2vh;
+    font-size: xx-large;
+    border-radius: 2rem;
+    border-width: .15rem;
+    border-color: #9E4C1D;
+    border-style: solid;
+  color:#201713;
+  transition: all 1s ease-out;
+  transform: scale(0.45);
 }
 
 #radio{
-  margin-left:2.5vw;
 }
 
 .connectPortal{

@@ -48,12 +48,6 @@ def login():
 @app.route("/connect", methods=["GET","POST"])
 def connect():
   if request.method == "POST":
-    subject=request.form.get('subject')
-    print(subject)
-    if not request.form.get('subject'):
-      subject="Everyday"
-    return render_template("index.html",subject=subject)
-  else:
     return render_template("index.html")
 
 
