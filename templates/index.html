@@ -1,63 +1,78 @@
 {% extends "style.html" %}
 <!--This is the html head.-->
 {% block head %}
-<title>Waffle Hacks 2022</title>
-<script <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-{% endblock %}
 
+
+{% endblock %}
 <!--This is the html body.-->
 {% block body %}
-<script type="text/javascript">
-  $(document).ready(function() {
-  
-  	var socket = io.connect((host='0.0.0.0', port=81));
-  
-  	socket.on('connect', function() {
-  		socket.send('User has connected!');
-  	});
-  
-  	socket.on('message', function(msg) {
-  		$("#messages").append('<li>'+msg+'</li>');
-  		console.log('Received message');
-  	});
-  
-  	$('#sendbutton').on('click', function() {
-  		socket.send($('#myMessage').val());
-  		$('#myMessage').val('');
-  	});
-  
-  });
-</script>
 
-
-<div class="welcomemsg">
+<div class="main">
+  <div class="welcomemsg">
 <!--If user is logged in, username will be displayed-->
+<!--Connect & Chatbox features to be shown only when logged in-->
   {% if session %}
     <h1 id="greet">Welcome {{session.userinfo.name}}!</h1>
-    <button id="alltype"><a href=/>Connect</a></button>
+    
+    <div class="connectPortal">
+    <details>
+      <summary>Join A Study Group</summary>
+      <p>subject1</p>
+      <p>subject2</p>
+    </details>
+    <button onclick="/connect">Connect</button>
+    </div>
+      
+    <div class = "chatbox" id="chatbox">
+      <h3 style="width:100%;text-align:center;">chat</h3>
+      <ul id="messages" style="list-style: none;padding:0px;"></ul>
+      <div class="write">
+        <input type="text" id="message">
+          <button id="add" onclick="AddLi(message.value)">Send</button>
+      </div>
+    </div>
+
+
+
+    
   {% else %}
     <h1 id="greet">Welcome Guest</h1>
     <button id="alltype"><a href=/login>Login</a></button>
   {% endif %}
+  </div> <!--end of welcomemsg class-->
 </div>
 
-
-<div class="main">
-  <div class = "chatbox">
-    <h3 style="width:100%;text-align:center;">chat</h3>
-    <ul id="messages"></ul>
-    <div class="write">
-      <input type="text" id="myMessage">
-      <button id="sendbutton">Send</button>
+<!--make the Play/Pause Audio smaller?-->
+<div class="bottom">
+  <div class="musicinfo">
+    <audio id="idAudio">
+  		<source src="{{url_for('static', filename='campfire.mp3')}}" type="audio/mpeg">
+    </audio>
+    <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+      <button onclick="play_Audio()" type="button">Play Audio</button>
+  	  <button onclick="pause_Audio()" type="button">Pause Audio</button>
     </div>
   </div>
-</div>
+  <script>
+		var GFG = document.getElementById("idAudio");
 
+		function play_Audio() {
+			GFG.play();
+		}
 
-<div class="bottom">
-  <img src="https://images.vexels.com/media/users/3/252400/isolated/preview/802fcc71fc51ed2878c1c84266d2351a-colorful-retro-radio-machine.png" id="radio">
-  <div class="musicinfo">-----MUSIC INFO-----</div>
+		function pause_Audio() {
+			GFG.pause();
+		}
+	</script>
+  <script type="text/javascript">
+function AddLi(str)
+{
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode(str))
+    document.getElementById("messages").appendChild(li);
+  document.querySelector('#message').value = "";
+}
+  </script>
 </div>
 {% endblock %}
 

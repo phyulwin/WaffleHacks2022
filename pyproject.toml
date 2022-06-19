@@ -10,8 +10,8 @@ numpy = "^1.22.2"
 Flask = "^2.1.2"
 Authlib = "^1.0.1"
 python-dotenv = "^0.20.0"
-Flask-SocketIO = "^5.2.0"
 simple-websocket = "^0.5.2"
+eventlet = "^0.33.1"
 
 [tool.poetry.dev-dependencies]
 

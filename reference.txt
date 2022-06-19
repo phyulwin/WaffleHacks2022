@@ -15,9 +15,9 @@ colors:
 #201713
 
 TODO:
-direct a logout
 add campfire 
 add audio https://youtu.be/WGggGhqtLVQ
+  added sample mp3 for testing purposes
 add profile pictures around campfire for effect
   maybe add interactivity to profile pictures?
 chat feature

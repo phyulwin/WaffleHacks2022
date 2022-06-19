@@ -34,6 +34,9 @@ button:hover, musicinfo:hover{
   border-radius:.5rem;
   background-color: #db5f29;
 }
+button:active{
+  background:red;
+}
 
 a{
   color:#201713;
@@ -94,12 +97,16 @@ input{
 input:focus{
    outline: none; }
 }
-#myMessage{
+
+li{
+  margin-right:auto;
+}
+#message{
   margin-top:auto;
   margin-bottom:auto;
   width:100%;
 }
-#sendbutton{
+#add{
   margin-top:auto;
   margin-bottom:auto;
   font-size:1vw;
@@ -119,4 +126,21 @@ input:focus{
 
 #radio{
   margin-left:2.5vw;
+}
+
+.connectPortal{
+  flex-direction:column;
+  font-size:5vh;
+  background:#ECCB9995;
+  margin-left:auto;
+  margin-right:2.5vw;
+  margin-top:5vh;
+  margin-bottom:0px;
+  border-radius: 1rem;
+  border-width: .15rem;
+  border-color: #ECCB9995;
+  border-style: solid;
+  height:max-content;
+  padding:1rem;
+  width:20%;
 }
