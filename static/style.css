@@ -57,7 +57,9 @@ a{
   width:100vw;
   margin-top: 30px;
 }
-
+#messages{
+  height:1000px;
+}
 #greet{
   font-size:3vw;
   color:#ECCB99;
@@ -91,12 +93,11 @@ a{
 h3{
   margin:0px;
 }
-#chats{
-  clear:both;
-}
 .write{
   justify-content:center;
-  margin-top:auto;
+  margin-top:15vh;
+  margin-bottom:-10vh;
+  bottom:0px;
 }
 #subject{
 }
@@ -110,8 +111,11 @@ li{
   margin-right:auto;
 }
 #message{
-  width:100%;
-  font-size:medium;
+  margin-left:2.5vw;
+  margin-right:-2.5vw;
+  margin-top:3vw;
+  height:5vh;
+  font-size:large;
   background:#ECCB99;
   border-style:none;
 }

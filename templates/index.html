@@ -34,10 +34,10 @@
 
         
     <div id="chatpop" class="chatbox" style="filter:opacity(0%);flex-direction:column;">
-      <h3 style="font-family:'Amatic SC',cursive;width:100%;text-align:center;">{{session.userinfo.name}}'s CHAT</h3>
-      <ul id="messages" style="list-style: none;padding:0px;font-size:1vw;"></ul>
+      <h3 style="font-family:'Amatic SC',cursive;width:100%;text-align:center;">{{session.userinfo.name}}'s CHATBOX</h3>
+      <ul id="messages" style="list-style: none;padding:0px;font-size:2vw;"></ul>
       <div class="write">
-        <input type="text" id="message">
+        <input type="text" id="message"></input>
           <button id="add" onclick="AddLi(message.value)">Send</button>
       </div>
       <button onclick="connectbox()">Go Back</button>
@@ -86,8 +86,8 @@
 
 
 function chatbox(){
-  var elem = document.getElementById("connpop");
-  elem.remove(); 
+  var connectbox = document.getElementById("connpop");
+  connectbox.style.display="none";
   document.getElementById("chatpop").style.filter="opacity(100%)";
 }
 document.getElementById('message')
@@ -100,7 +100,8 @@ document.getElementById('message')
   //this is to show connect box when removing chat
 function connectbox(){
   var chatbox=document.getElementById("chatpop");
-  chatbox.remove(); document.getElementById("connpop").style.filter="opacity(100%)";
+  chatbox.style.display="none";
+  document.getElementById("connpop").style.filter="opacity(100%)";
 }
 </script>
 {% endblock %}
