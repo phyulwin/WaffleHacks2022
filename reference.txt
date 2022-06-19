@@ -17,7 +17,7 @@ colors:
 TODO:
 direct a logout
 add campfire 
-
+add audio https://youtu.be/WGggGhqtLVQ
 add profile pictures around campfire for effect
   maybe add interactivity to profile pictures?
 chat feature

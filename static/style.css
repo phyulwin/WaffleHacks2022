@@ -4,20 +4,21 @@ body{
     margin: 0px;
     width: 100vw;
     height: 100vh;
-  background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url("https://cdna.artstation.com/p/assets/images/images/021/043/496/large/alex-kolosov-campfirescene-03.jpg?1570155424&dl=1");
-  background:filter(brightness:10%;);
+  background-image:url("https://cdna.artstation.com/p/assets/images/images/021/732/412/original/lida-cosgrove-lcosgrove-campfire-final-full.gif?1572759240");
       background-repeat: no-repeat;
     background-size: 100% 100%;
     font-family: monospace;
 }
+
 div{
     display: flex;
-}
+} 
+
 button,.musicinfo{
   align-self:center;
-    margin-inline: .5rem;
+    margin-inline: 2.5vw;
     background-color: #e77d36;
-    padding: .25rem;
+    padding: .35rem;
     margin-top:2vh;
     font-size: xx-large;
     border-radius: 1rem;
@@ -25,49 +26,48 @@ button,.musicinfo{
     border-color: #9E4C1D;
     border-style: solid;
   color:#201713;
-  transition: border-radius 1s ease-in-out;
+  transition: all 1s ease-in-out;
+    font-family: 'Brush Script MT', cursive;
 }
-button:hover{
+button:hover, musicinfo:hover{
+  border-color:#ECCB9995;
   border-radius:.5rem;
   background-color: #db5f29;
 }
-.musicinfo:hover{
-  background-color: #db5f29;
-}
+
 a{
   color:#201713;
   text-decoration:none;
 }
 
-.header{
-    float: right;
-  clear:both;
+.welcomemsg{
   height:10vh;
-    margin-inline: 5rem;
-    margin-top: 0px;
+  margin-top: 0px;
+}
+
+#greet{
+  margin-left:50%;
+  transform:translate(-50%);
+  font-size:2.5vw;
+  color:#ECCB99;
+}
+#alltype{
+  margin-left:auto;
 }
 
 .main{
-  display: flex;
   height:70vh;
   width:100vw;
-  justify-content:center;
-}
-
-.welcomemsg{
-  margin-left:50vw;
-  transform:translate(-50%);
-  font-size:1.5vw;
-  color:#ECCB99;
 }
 
 .chatbox{
   flex-direction:column;
-  font-size:1.5vw;
+  font-size:5vh;
   background:#ECCB9995;
   margin-left:auto;
-  margin-right:1vw;
+  margin-right:2.5vw;
   margin-top:5vh;
+  margin-bottom:0px;
   border-radius: 1rem;
   border-width: .15rem;
   border-color: #ECCB9995;
@@ -76,6 +76,9 @@ a{
   padding:1rem;
   width:20%;
 }
+h3{
+  margin:0px;
+}
 #chats{
   clear:both;
 }
@@ -83,9 +86,13 @@ a{
   justify-content:center;
 }
 input{
+  font-size:medium;
+  width:100%;
   background:#ECCB99;
   border-style:none;
-  
+}
+input:focus{
+   outline: none; }
 }
 #myMessage{
   margin-top:auto;
@@ -102,6 +109,7 @@ input{
 .bottom{
   z-index:10;
   height:20vh;
+  align-self:center;
 }
 
 .musicinfo{

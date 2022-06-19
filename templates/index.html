@@ -31,22 +31,19 @@
 </script>
 
 
-<div class="header">
-      <button>Connect</button>
+<div class="welcomemsg">
+<!--If user is logged in, username will be displayed-->
+  {% if session %}
+    <h1 id="greet">Welcome {{session.userinfo.name}}!</h1>
+    <button id="alltype"><a href=/>Connect</a></button>
+  {% else %}
+    <h1 id="greet">Welcome Guest</h1>
+    <button id="alltype"><a href=/login>Login</a></button>
+  {% endif %}
 </div>
 
 
 <div class="main">
-  <div class="welcomemsg">
-<!--If user is logged in from Auth0, username will be shown-->
-    {% if session %}
-      <h1>Welcome {{session.userinfo.name}}!</h1>
-    {% else %}
-      <h1>Welcome Guest</h1>
-      <button><a href=/login>Login</a></button>
-    {% endif %}
-  </div>
-  
   <div class = "chatbox">
     <h3 style="width:100%;text-align:center;">chat</h3>
     <ul id="messages"></ul>
