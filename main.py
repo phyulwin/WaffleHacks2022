@@ -50,11 +50,7 @@ def connect():
   if request.method == 'POST':
     pass
   else:
-    try:
-      subject1 = "ENGLISH"
-      subject2 = "MATH"
-    except:
-      return render_template("index.html")
+    return render_template("index.html")
 
 
 if __name__ == "__main__":

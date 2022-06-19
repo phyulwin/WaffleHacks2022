@@ -1,4 +1,5 @@
 /*This affects every html page.*/
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 body{
   z-index:1;
     margin: 0px;
