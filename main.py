@@ -6,7 +6,7 @@ from urllib.parse import quote_plus, urlencode
 
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
-from flask import Flask, redirect, render_template, session, url_for
+from flask import Flask, redirect, render_template, session, url_for, request
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thisisaseceret'
@@ -29,7 +29,6 @@ def home():
     return render_template(
         "index.html",
         session=session.get("user"),
-        subject=" ",
         #pretty=json.dumps(session.get("user"), indent=4),
     )
 
@@ -48,11 +47,14 @@ def login():
 
 @app.route("/connect", methods=["GET","POST"])
 def connect():
-  if request.method == 'POST':
+  if request.method == "POST":
     subject=request.form.get('subject')
+    print(subject)
+    if not request.form.get('subject'):
+      subject="Everyday"
     return render_template("index.html",subject=subject)
   else:
-    return render_template("index.html",subject=" ")
+    return render_template("index.html")
 
 
 if __name__ == "__main__":

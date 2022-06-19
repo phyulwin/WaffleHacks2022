@@ -1,14 +1,14 @@
 /*This affects every html page.*/
-@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 body{
   z-index:1;
     margin: 0px;
     width: 100vw;
     height: 100vh;
-  background-image:url("https://cdna.artstation.com/p/assets/images/images/021/732/412/original/lida-cosgrove-lcosgrove-campfire-final-full.gif?1572759240");
+  /*https://i.imgur.com/FpbPcy2.png*/
+  background-image:url("https://i.imgur.com/rR2ioad.gif");
       background-repeat: no-repeat;
     background-size: 100% 100%;
-    font-family: monospace;
+      font-family: 'Amatic SC', cursive;
 }
 
 div{
@@ -22,18 +22,23 @@ button,.musicinfo{
     padding: .35rem;
     margin-top:2vh;
     font-size: xx-large;
-    border-radius: 1rem;
+    border-radius: 2rem;
     border-width: .15rem;
     border-color: #9E4C1D;
     border-style: solid;
   color:#201713;
-  transition: all 1s ease-in-out;
-    font-family: 'Brush Script MT', cursive;
+  transition: all 1s ease-out;
+  transform: scale(0.45);
 }
 button:hover, musicinfo:hover{
   border-color:#ECCB9995;
   border-radius:.5rem;
   background-color: #db5f29;
+
+}
+label{
+  clear:both;
+  white-space:nowrap;
 }
 button:active{
   background:red;
@@ -45,20 +50,20 @@ a{
 }
 
 .welcomemsg{
-  margin-left:50vw;
-  transform:translate(-50%);
+  margin-left:20vw;
   height:10vh;
+  width:100vw;
   margin-top: 0px;
 }
 
 #greet{
-  margin-left:50%;
-  transform:translate(-50%);
-  font-size:2.5vw;
+  margin-left:auto;
+  margin-right:auto;
+  font-size:3vw;
   color:#ECCB99;
 }
 #alltype{
-  margin-left:auto;
+  margin-right:auto;
 }
 
 .main{
@@ -91,11 +96,10 @@ h3{
 .write{
   justify-content:center;
 }
+#subject{
+}
 input{
-  font-size:medium;
-  width:100%;
-  background:#ECCB99;
-  border-style:none;
+
 }
 input:focus{
    outline: none; }
@@ -108,6 +112,9 @@ li{
   margin-top:auto;
   margin-bottom:auto;
   width:100%;
+    font-size:medium;
+  background:#ECCB99;
+  border-style:none;
 }
 #add{
   margin-top:auto;
@@ -123,6 +130,7 @@ li{
 }
 
 .musicinfo{
+  
   margin-top:5vh;
   font-size:2.5vw;
   width:min-content;
@@ -173,7 +181,6 @@ li{
   opacity: 0;
   cursor: pointer;
 }
-
 /* Create a custom radio button */
 .checkmark {
   position: absolute;
@@ -184,30 +191,21 @@ li{
   background-color: #eee;
   border-radius: 50%;
 }
-
-/* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
   background-color: #ccc;
 }
-
-/* When the radio button is checked, add a blue background */
+/* When the radio button is checked*/
 .container input:checked ~ .checkmark {
   background-color: #201713;
 }
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-
-/* Show the indicator (dot/circle) when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
 }
-
-/* Style the indicator (dot/circle) */
 .container .checkmark:after {
  	top: 9px;
 	left: 9px;
@@ -221,7 +219,6 @@ li{
 .confetti-button {
   align-self:center;
   transform: scale(0.5);
-  font-family: 'Brush Script MT', cursive;
   display: inline-block;
   font-size: 1em;
   padding: 1em 2em;

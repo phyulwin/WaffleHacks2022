@@ -6,45 +6,44 @@
 {% endblock %}
 <!--This is the html body.-->
 {% block body %}
-<script src="{{url_for('static', filename='myScript.js')}}"></script>
+
 <div class="main">
   <div class="welcomemsg">
-<!--If user is logged in, username will be displayed-->
-<!--Connect & Chatbox features to be shown only when logged in-->
   {% if session %}
     <h1 id="greet">Welcome {{session.userinfo.name}}!</h1>
   {% else %}
-    <h1 id="greet">Welcome Guest</h1>
-    <button id="alltype"><a href=/login>Login</a></button>
+    <h1 id="greet" style="font-family: 'Amatic SC', cursive;">Welcome Guest</h1>
+    <button id="alltype" ><a href=/login>Login</a></button>
   {% endif %}
   </div> <!--end of welcomemsg class-->
   
   {% if session %}
-      <div class = "chatbox" style="overflow:hidden;">
-      <div id=connpop style="height:100%;width:100%;margin:auto;">
-    
-        <form action="/connect" method="post" style="margin: auto">
-          <label>
-            <input type="radio" name="subject" value="0"/>ART/HUMANITIES
-          </label>
-          <label>
-            <input type="radio" name="subject" value="1"/>MATH/SCIENCE
-          </label>
-          <label>
-            <input type="radio" name="subject" value="2"/>OTHERS
-          </label>
-        <button type="submit" onclick="chatbox()"<a href=/connect>connect</button>
-      </div>
+    <div class = "chatbox" style="overflow:hidden;width:max-content;height:40vh;">
+    <div id=connpop style="height:100%;width:100%;margin:auto;"> 
+    <form action="/connect" method="post">
+        <h3 style="width:100%;text-align:center;">JOIN A STUDY GROUP</h3>
+        <label>
+          <input type="radio" id="subject" name="Art" value="0"/>&nbspART/HUMANITIES
+        </label>
+        <label>
+          <input type="radio" id="subject" name="Science" value="1"/>&nbspMATH/SCIENCES
+        </label
+        <label style="white-space:nowrap;clear:both;">
+          <input type="radio" id="subject" name="Everyday" value="2"/>&nbspCASUAL CHAT
+        </label>
+      <button type="submit" onclick="chatbox()" style="">connect</button>
+    </div>
+    </form>
         
-      <div id="chatpop" style="filter:opacity(0%);">
-        <h3 style="width:100%;text-align:center;">{{subject}}chat</h3>
-        <ul id="messages" style="list-style: none;padding:0px;font-size:1vw;"></ul>
-        <div class="write">
-          <input type="text" id="message">
-            <button id="add" onclick="AddLi(message.value)">Send</button>
-        </div>
+    <div id="chatpop" style="filter:opacity(0%);flex-direction:column;">
+      <h3 style="font-family:'Amatic SC',cursive;width:100%;text-align:center;">{{session.userinfo.name}}'s CHAT</h3>
+      <ul id="messages" style="list-style: none;padding:0px;font-size:1vw;"></ul>
+      <div class="write">
+        <input type="text" id="message">
+          <button id="add" onclick="AddLi(message.value)">Send</button>
       </div>
     </div>
+  </div>
 {% endif %}
 </div>
 
@@ -55,13 +54,12 @@
   		<source src="{{url_for('static', filename='campfire.mp3')}}" type="audio/mpeg">
     </audio>
     <button onclick="play_Audio()" type="button">
-      <img src="https://cdn-icons.flaticon.com/png/512/5577/premium/5577228.png?token=exp=1655632800~hmac=f6d9b7be3b6392437eec19e1fab63474" style="height:5vw;">
+      <img src="https://i.imgur.com/UrAFv3h.png" style="height:7vw;">
     </button>
     <button onclick="pause_Audio()" type="button" >
-      <img src="https://cdn-icons.flaticon.com/png/512/3669/premium/3669483.png?token=exp=1655632800~hmac=c9f4ea8f18992f8ef85bc863fa300ace" style="height:5vw;">
+      <img src="https://i.imgur.com/rSEFahk.png" style="height:7vw;">
     </button>
   </div>
-
 </div>
 
 
@@ -109,6 +107,13 @@ function chatbox(){
   elem.remove();
   document.getElementById("chatpop").style.filter="opacity(100%)";
 }
+document.getElementById('message')
+  .addEventListener('keyup', function(event) {
+      if (event.code === 'Enter')
+      {
+        AddLi(document.getElementByID('text').value())
+      }
+  });
 </script>
 {% endblock %}
 
