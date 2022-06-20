@@ -1,7 +1,8 @@
 
 # **CampfireStudy** 
 ### A tool that keeps users accountable for their work and maekes peer assistance more accessable. 2x Winner of WaffleHacks2022
-#### you can view and interact with a local version at : https://camp-study-waffle-hacks-2022.phyulwin.repl.co/
+#### view and interact with a local version at : https://camp-study-waffle-hacks-2022.phyulwin.repl.co/
+#### View our Devpost submission : https://devpost.com/software/campconnect
 
 # Project Description
 ## Inspiration
