@@ -8,42 +8,14 @@
 {% block body %}
 
 <div class="main">
-  <div class="welcomemsg">
-  {% if session %}
-    <h1 id="greet" style="font-family: 'Amatic SC', cursive;">Camp•Study</h1>
-  {% else %}
-    <h1 id="greet" style="font-family: 'Amatic SC', cursive;">Welcome Guest</h1>
-    <button id="alltype" ><a href=/login>Login</a></button>
-  {% endif %}
+  <div class="welcomemsg" style="margin-left:0;">
+  
+    <h1 id="greet" style="font-family: 'Amatic SC', cursive;margin-left:50vw;transform:translate(-50%);white-space:nowrap;">Welcome Guest</h1>
+    <button id="alltype" style="font-size:15vh;margin-left:25vw;"><a href="/login">Login</a></button>
+  
   </div> <!--end of welcomemsg class-->
   
-  {% if session %}
-    <div id = "connpop" class="chatbox" style="width:min-content;height:40vh;">
-        <h3 style="width:100%;text-align:center;font-family: 'Amatic SC', cursive;">JOIN A STUDY GROUP</h3>
-        <label>
-          <input type="radio" id="subject" name="subject">ART/HUMANITIES
-        </label>
-        <label>
-          <input type="radio" id="subject" name="subject">MATH/SCIENCES
-        </label>
-        <label style="white-space:nowrap;clear:both;">
-          <input type="radio" id="subject" name="subject">CASUAL CHAT
-        </label>
-      <button onclick="chatbox()">connect</button>
-    </div>  
-
-        
-    <div id="chatpop" class="chatbox" style="filter:opacity(0%);flex-direction:column;">
-      <h3 style="font-family:'Amatic SC',cursive;width:100%;text-align:center;">{{session.userinfo.name}}'s CHATBOX</h3>
-      <ul id="messages" style="list-style: none;padding:0px;font-size:2vw;"></ul>
-      <div class="write">
-        <input type="text" id="message"></input>
-          <button id="add" onclick="AddLi(message.value)">Send</button>
-      </div>
-      <button onclick="connectbox()">Go Back</button>
-    </div>
-
-{% endif %}
+  
 </div>
 
 <!--Audio Play/Pause buttons-->
