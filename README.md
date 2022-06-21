@@ -1,6 +1,6 @@
 
 # **CampfireStudy** 
-### A tool that keeps users accountable for their work and maekes peer assistance more accessable. 2x Winner of WaffleHacks2022
+### A tool that keeps users accountable for their work and maekes peer assistance more accessable. 2x Award Winner of WaffleHacks2022 Created by Phyu Lwin, Blake Sharp, Tiffany Deng, and Ruhma Hashmi.
 #### view and interact with a local version at : https://camp-study-waffle-hacks-2022.phyulwin.repl.co/
 #### View our Devpost submission : https://devpost.com/software/campconnect
 
@@ -32,7 +32,7 @@ Some features we plan on adding: -Voice functionality -Allowing users to pick th
 
 ![Auth0 integration](https://i.imgur.com/g53pKzG.png)
 
-![chatbox](https://i.imgur.com/E37wFuK.png)  ![Connection popup](https://i.imgur.com/YY75v7c.png)
+![Connection popup](https://i.imgur.com/YY75v7c.png) ![chatbox](https://i.imgur.com/1WF2IWM.png)  
 
 
 
